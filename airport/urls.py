@@ -36,4 +36,24 @@ urlpatterns = [
         views.CancelBooking.as_view(),
         name="cancel-booking",
     ),
+
+    path(
+        "register/",
+        views.user_register.as_view(),
+        name="register",
+    ),
+
+    path(
+        "login/",
+        views.user_login.as_view(),
+        name="login",
+    ),
+
+    path(
+        "logout/",
+        views.logout_view.as_view(),
+        name="logout",
+    ),
+
+
 ]
