@@ -7,7 +7,7 @@ from flights.models import Booking, Flight
 from django.shortcuts import render, redirect
 from .forms import UserRegister,UserLogin
 from django.contrib.auth import login, authenticate,logout
-
+from django.http import Http404
 
 class FlightsList(generics.ListAPIView):
     queryset = Flight.objects.all()
@@ -77,4 +77,10 @@ def logout_view(request):
     logout(request)
     return redirect("success-page")
 
+def Permissions_view(request):
+    if request.user.is_anonymous:
+        return redirect("login")
 
+def notfound_view(request):
+    if not request.user.is_staff:
+        raise Http404

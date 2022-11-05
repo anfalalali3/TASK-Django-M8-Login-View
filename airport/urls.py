@@ -54,6 +54,10 @@ urlpatterns = [
         views.logout_view.as_view(),
         name="logout",
     ),
-
+path(
+        "permissions/",
+        views.Permissions_view.as_view(),
+        name="permissions",
+    ),
 
 ]
